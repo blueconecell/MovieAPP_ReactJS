@@ -9,20 +9,24 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const root = document.getElementById("root");
-    const clicks = (
-      <h1 id="title" onMouseEnter={() => console.log("mouse entered")}>
-        Hello I'm title.
-      </h1>
-    );
-    const btn11 = (
+    function Title() {
+      return (
+        <h1 id="title" onMouseEnter={() => console.log("mouse entered")}>
+          Hello I'm title.
+        </h1>
+      );
+    }
+    const Button = () => (
       <button style={{ backgroundColor: "tomato" }} onClick={() => console.log("im clicked")}>
         click me
       </button>
     );
 
-    const div = React.createElement("div", null, [clicks, btn11]);
-
-    // ReactDOM.render(clicks, root)
-    ReactDOM.render(div, root);
+    const container = (
+      <div>
+        <Title /> <Button />
+      </div>
+    );
+    ReactDOM.render(container, root);
   </script>
 </html>
