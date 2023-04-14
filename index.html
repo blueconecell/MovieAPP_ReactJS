@@ -7,25 +7,21 @@
   <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+
   <script type="text/babel">
     const root = document.getElementById("root");
-    let cnt = 0;
-    function countUp() {
-      cnt += 1;
-      render();
-    }
-    function render() {
-      ReactDOM.render(<Container />, root);
-    }
-    function Container() {
+    function App() {
+      
+      const [cnt, modifier] = React.useState(0);
       return (
         <div>
           <h1>Total Clicks : {cnt}</h1>
-          <button onClick={countUp}>click me</button>
+          <button>click me</button>
         </div>
       );
     }
 
-    ReactDOM.render(<Container />, root);
+    ReactDOM.render(<App />, root);
   </script>
 </html>
