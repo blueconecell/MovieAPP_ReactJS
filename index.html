@@ -37,7 +37,31 @@
       );
     }
     function KmToMiles() {
-      return <h3> KM 2 M </h3>;
+      const [amount, setAmount] = React.useState(0);
+      const [flipped, setFlipped] = React.useState(false);
+      const onChange = (event) => {
+        setAmount(event.target.value);
+      };
+      const reset = () => setAmount(0);
+      const flip = () => {
+        reset();
+        setFlipped((current) => !current);
+      };
+      return (
+        <div>
+          <div>
+            <label htmlFor="Km">Km</label>
+            <input value={flipped ? amount * 60 : amount} id="Km" placeholder="Km" onChange={onChange} type="number" disabled={flipped} />
+          </div>
+          <h4>you want to convert {amount}</h4>
+          <div>
+            <label htmlFor="Miles">Miles</label>
+            <input value={flipped ? amount : Math.round(amount / 60)} id="Miles" placeholder="Miles" type="number" onChange={onChange} disabled={!flipped} />
+          </div>
+          <button onClick={reset}>Reset!🔴</button>
+          <button onClick={flip}>Flip!🔄</button>
+        </div>
+      );
     }
     function App() {
       const [index, setIndex] = React.useState(0);
