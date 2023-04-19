@@ -51,12 +51,12 @@
         <div>
           <div>
             <label htmlFor="Km">Km</label>
-            <input value={flipped ? amount * 60 : amount} id="Km" placeholder="Km" onChange={onChange} type="number" disabled={flipped} />
+            <input value={flipped ? amount * 1.60934 : amount} id="Km" placeholder="Km" onChange={onChange} type="number" disabled={flipped} />
           </div>
           <h4>you want to convert {amount}</h4>
           <div>
             <label htmlFor="Miles">Miles</label>
-            <input value={flipped ? amount : Math.round(amount / 60)} id="Miles" placeholder="Miles" type="number" onChange={onChange} disabled={!flipped} />
+            <input value={flipped ? amount : amount * 0.621371} id="Miles" placeholder="Miles" type="number" onChange={onChange} disabled={!flipped} />
           </div>
           <button onClick={reset}>Reset!🔴</button>
           <button onClick={flip}>Flip!🔄</button>
